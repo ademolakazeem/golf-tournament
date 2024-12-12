@@ -25,14 +25,13 @@ public class KafkaConsumerConfig {
         return new DefaultKafkaConsumerFactory<>(kafkaProdConsConfig.consumerConfig());
     }
 
+    @Bean
     public KafkaListenerContainerFactory<
             ConcurrentMessageListenerContainer<String, String>> klcFactory() {
 
         ConcurrentKafkaListenerContainerFactory<String, String> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-        // factory.setConcurrency(1);
-        //factory.getContainerProperties().setPollTimeout(3000);
         return factory;
     }
 }
