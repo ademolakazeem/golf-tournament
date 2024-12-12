@@ -18,7 +18,14 @@ The Architecture shows the high level visual display of how each component work 
 but this project only contains the Spring boot REST API how with Apache Kafka Implementation. 
 The frontend is not implemented, but could be implemented with React.js, Angular or VUE.js frontend or any other frontend frameworks whenever needed.
 
-diagram here.
+![alt text](https://github.com/ademolakazeem/golf-tournament/blob/main/architectural-diagram.png?raw=true)
+***Event-Driven HL Architecture Overview:** High Level Architecture diagram for the Golf Tournament Application*
+
+
+
+![alt text](https://github.com/ademolakazeem/golf-tournament/blob/main/Golf-Tournament-Application.png?raw=true)
+***Event Processing Flow:** Sequence Diagram for the Golf Tournament Application*
+
 
 The system is scalable and can handle multiple concurrent score submissions while maintaining consistency in the leaderboard updates.
 
@@ -60,6 +67,59 @@ This design of this application demonstrates design with consideration for:
 * Separation of concerns 
 * Maintainability 
 * Scalability
+
+![alt text](https://github.com/ademolakazeem/golf-tournament/blob/main/deployment-architecture.png?raw=true)
+***Deployment Architecture (AWS):** Deployment Architecture of the Golf Tournament Application*
+
+
+## Scalability and Reliability Considerations:
+
+* Horizontal Scaling 
+  * Services deployed in containers for easy scaling 
+  * Kafka partitioning for parallel processing 
+  * Database read replicas for query scaling
+* Fault Tolerance 
+  * Circuit breakers could be introduced in order to fail gracefully against external services 
+  * Retry mechanisms for transient failures 
+  * In case of failure events, Dead letter queues could be introduced
+
+* Monitoring and Alerting
+  * Metrics collection with Prometheus 
+  * Log aggregation with ELK stack (Elasticsearch, Logstash, and Kibana)
+  * Distributed tracing with X-Ray 
+  * Performance Optimization
+  * Caching frequently accessed data 
+  * Asynchronous processing 
+  * Batch processing where applicable
+
+* Testing Strategy:
+  * Unit Testing 
+  * Integration Testing 
+  * API endpoint tests 
+  * Database interaction tests 
+  * Event processing tests 
+  * Performance Testing 
+  * Load testing with JMeter 
+  * Stress testing 
+  * Scalability testing 
+  * End-to-End Testing 
+  * User flow testing 
+  * System integration testing 
+  * Failure scenario testing
+
+* This architecture ensures:
+  * High availability through redundancy 
+  * Scalability through horizontal scaling 
+  * Reliability through fault tolerance 
+  * Performance through optimization
+  * Maintainability through modular design
+
+* The system handles increased load by:
+  * Auto-scaling application services 
+  * Increasing Kafka partitions 
+  * Scaling database resources 
+  * Load balancing across services 
+  * Caching frequently accessed data
 
 
 ## Prerequisites for building ##
@@ -146,4 +206,11 @@ Please do not forget to add swagger-ui.html in front of the localhost, i.e: http
 * Kafka implementation in the application distributes updates and alerts 
 * Clients receive real-time updates via WebSocket 
 * The leaderboard shows players sorted by their scores relative to par
+
+## Demo of the Golf Tournament Application ##
+
+Click on the Image below to watch the demo of the Golf Tournament Application
+
+[![Watch the video demo](https://github.com/ademolakazeem/golf-tournament/blob/main/architectural-diagram.png)](https://www.youtube.com/watch?v=nXLhAadJsUk)
+
 
